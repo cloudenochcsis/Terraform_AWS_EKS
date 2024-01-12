@@ -9,11 +9,13 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "cloudenoch-terraform-eks-state-7x9k2m"
-    key            = "terraform.tfstate"
-    region         = "us-west-2"
-    dynamodb_table = "terraform-eks-state-locks"
-    encrypt        = true
+    bucket               = "cloudenoch-terraform-eks-state-7x9k2m"
+    key                  = "terraform.tfstate"
+    region               = "us-west-2"
+    dynamodb_table       = "terraform-eks-state-locks"
+    encrypt              = true
+    use_lockfile         = false
+    workspace_key_prefix = "workspaces"
   }
 }
 
@@ -89,8 +91,8 @@ module "eks" {
   endpoint_private_access        = true
 
   # Cluster encryption
-  create_kms_key              = var.enable_cluster_encryption
-  enable_kms_key_rotation     = var.enable_cluster_encryption
+  create_kms_key          = var.enable_cluster_encryption
+  enable_kms_key_rotation = var.enable_cluster_encryption
   cluster_encryption_config = var.enable_cluster_encryption ? {
     provider_key_arn = null # Will use the KMS key created by the module
     resources        = ["secrets"]
@@ -101,7 +103,7 @@ module "eks" {
   subnet_ids = module.vpc.private_subnets
 
   # Cluster logging
-  enabled_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
+  enabled_log_types                      = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
   cloudwatch_log_group_retention_in_days = 7
 
   # IRSA (IAM Roles for Service Accounts)
@@ -116,7 +118,7 @@ module "eks" {
     for key, node_group in var.node_groups : key => {
       name           = node_group.name
       instance_types = [node_group.instance_type]
-      
+
       min_size     = node_group.min_size
       max_size     = node_group.max_size
       desired_size = node_group.desired_capacity
