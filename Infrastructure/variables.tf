@@ -62,8 +62,12 @@ variable "node_groups" {
     desired_capacity = number
     disk_size        = optional(number, 20)
     labels           = optional(map(string), {})
-    taints           = optional(list(map(string)), [])
-    tags             = optional(map(string), {})
+    taints = optional(map(object({
+      key    = string
+      value  = optional(string)
+      effect = string
+    })), {})
+    tags = optional(map(string), {})
   }))
   default = {
     general = {

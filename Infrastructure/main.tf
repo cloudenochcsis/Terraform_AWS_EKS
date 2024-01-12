@@ -9,7 +9,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket               = "cloudenoch-terraform-eks-state-7x9k2m"
+    bucket               = "cloudenoch-open-telemetry-terraform-eks-state-7x9k2m"
     key                  = "terraform.tfstate"
     region               = "us-west-2"
     dynamodb_table       = "terraform-eks-state-locks"
@@ -94,8 +94,7 @@ module "eks" {
   create_kms_key          = var.enable_cluster_encryption
   enable_kms_key_rotation = var.enable_cluster_encryption
   encryption_config = var.enable_cluster_encryption ? {
-    provider_key_arn = null # Will use the KMS key created by the module
-    resources        = ["secrets"]
+    resources = ["secrets"]
   } : {}
 
   # VPC and Subnets
@@ -147,7 +146,7 @@ module "eks" {
       labels = try(node_group.labels, {})
 
       # Taints
-      taints = try(node_group.taints, [])
+      taints = try(node_group.taints, {})
 
       # Tags
       tags = try(node_group.tags, {})
