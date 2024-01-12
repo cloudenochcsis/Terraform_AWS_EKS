@@ -33,17 +33,17 @@ Your Terraform infrastructure has been updated to use the latest official AWS mo
 
 ## Files Modified
 
-### ✅ Updated Files
+### Updated Files
 1. **main.tf** - Complete rewrite using official modules
 2. **variables.tf** - Updated variable structure for new modules
 3. **outputs.tf** - Enhanced outputs with more useful information
 4. **backend/main.tf** - Added encryption and lifecycle improvements
 
-### 📝 New Files Created
+### New Files Created
 1. **README_UPDATED.md** - Comprehensive documentation
 2. **MIGRATION_GUIDE.md** - This file
 
-### ⚠️ Custom Modules
+### Custom Modules
 The following directories are **no longer needed** with the new configuration:
 - `modules/vpc/` - Replaced by terraform-aws-modules/vpc
 - `modules/eks/` - Replaced by terraform-aws-modules/eks
@@ -164,7 +164,7 @@ terraform apply
 
 If you need to preserve existing resources:
 
-**⚠️ ADVANCED - Requires careful planning**
+**ADVANCED - Requires careful planning**
 
 ```bash
 # 1. Backup everything
@@ -331,13 +331,13 @@ If you encounter issues:
 ## Recommendations
 
 ### For Development Environments
-✅ Use **Path 1 (Fresh Deployment)** - Fastest and cleanest
+Use **Path 1 (Fresh Deployment)** - Fastest and cleanest
 
 ### For Staging Environments
-✅ Use **Path 2 (State Migration)** - Good practice for production migration
+Use **Path 2 (State Migration)** - Good practice for production migration
 
 ### For Production Environments
-✅ Use **Path 3 (Blue-Green)** - Safest, zero downtime
+Use **Path 3 (Blue-Green)** - Safest, zero downtime
 
 ---
 

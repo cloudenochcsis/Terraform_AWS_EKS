@@ -1,18 +1,18 @@
 # EKS Infrastructure with Terraform - UPDATED
 
-🎉 **Now using the latest Terraform AWS modules and best practices!**
+**Now using the latest Terraform AWS modules and best practices!**
 
 ## What's New
 
 This infrastructure has been updated to use:
 
-- ✅ **AWS Provider 6.28.0** (previously ~5.0)
-- ✅ **Official terraform-aws-modules/vpc** version 6.6.0 (replaces custom module)
-- ✅ **Official terraform-aws-modules/eks** version 21.12.0 (replaces custom module)
-- ✅ **Kubernetes 1.31** support (latest stable version)
-- ✅ **Enhanced security** with bucket_key_enabled, server-side encryption for DynamoDB
-- ✅ **Improved lifecycle management** for S3 state versioning
-- ✅ **Latest EKS addons** including Pod Identity Agent
+- **AWS Provider 6.28.0** (previously ~5.0)
+- **Official terraform-aws-modules/vpc** version 6.6.0 (replaces custom module)
+- **Official terraform-aws-modules/eks** version 21.12.0 (replaces custom module)
+- **Kubernetes 1.31** support (latest stable version)
+- **Enhanced security** with bucket_key_enabled, server-side encryption for DynamoDB
+- **Improved lifecycle management** for S3 state versioning
+- **Latest EKS addons** including Pod Identity Agent
 
 ## Features
 
