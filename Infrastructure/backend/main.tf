@@ -23,7 +23,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "cloudenoch-terraform-eks-state-7x9k2m"
+  bucket = "cloudenoch-open-telemetry-terraform-eks-state-7x9k2m"
 
   lifecycle {
     prevent_destroy = false

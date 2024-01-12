@@ -117,6 +117,7 @@ module "eks" {
     for key, node_group in var.node_groups : key => {
       name           = node_group.name
       instance_types = [node_group.instance_type]
+      capacity_type  = "ON_DEMAND"
 
       min_size     = node_group.min_size
       max_size     = node_group.max_size
