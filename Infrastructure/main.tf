@@ -103,7 +103,7 @@ module "eks" {
 
   # Cluster logging
   enabled_log_types                      = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
-  cloudwatch_log_group_retention_in_days = 7
+  cloudwatch_log_group_retention_in_days = 30
 
   # IRSA (IAM Roles for Service Accounts)
   enable_irsa = true
