@@ -83,17 +83,17 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 21.12"
 
-  cluster_name    = var.cluster_name
-  cluster_version = var.cluster_version
+  name               = var.cluster_name
+  kubernetes_version = var.cluster_version
 
   # Cluster endpoint access
-  cluster_endpoint_public_access = var.cluster_endpoint_public_access
-  endpoint_private_access        = true
+  endpoint_public_access  = var.cluster_endpoint_public_access
+  endpoint_private_access = true
 
   # Cluster encryption
   create_kms_key          = var.enable_cluster_encryption
   enable_kms_key_rotation = var.enable_cluster_encryption
-  cluster_encryption_config = var.enable_cluster_encryption ? {
+  encryption_config = var.enable_cluster_encryption ? {
     provider_key_arn = null # Will use the KMS key created by the module
     resources        = ["secrets"]
   } : {}
@@ -155,7 +155,7 @@ module "eks" {
   }
 
   # Cluster addons
-  cluster_addons = {
+  addons = {
     coredns = {
       most_recent = true
     }
