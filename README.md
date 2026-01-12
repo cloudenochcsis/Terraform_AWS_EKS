@@ -1,6 +1,8 @@
-# EKS Infrastructure with Terraform - UPDATED
+# EKS Infrastructure with Terraform
 
-**Now using the latest Terraform AWS modules and best practices!**
+> **Last Updated:** January 2026 - Enhanced with Claude AI Skills integration
+
+**Production-ready Terraform infrastructure using official AWS modules and best practices!**
 
 ## What's New
 
